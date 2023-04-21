@@ -21,4 +21,21 @@
   }
 }());
 
-// Place any jQuery/helper plugins in here.
+// Typewriter plugin for welcome screen
+const app = document.querySelector('#typewriter');
+
+const typewriter = new Typewriter(app, {
+  loop: false,
+  cursor: '_',
+  delay: 85
+});
+
+typewriter
+  .pauseFor(800)
+  .typeString("How might I address you?")
+  .callFunction(() => {
+    document.querySelector('.Typewriter__cursor')?.classList.add('d-none');
+    document.querySelector('#welcomeInput')?.classList.remove('invisible');
+    document.querySelector('#welcomeInput')?.classList.add('fade-in');
+  })
+  .start();
